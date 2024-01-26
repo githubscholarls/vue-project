@@ -5,10 +5,32 @@ import ToolingIcon from './icons/IconTooling.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
+import { ref } from 'vue'
+
+const tochildValueObj = ref({
+  name:'lishuai',
+  age:18
+})
+const tochildValueObj2 = {
+  name:'lishuaiasdf',
+  age:188
+}
+const parentTitle = ref('这是父传子defineprop 属性值')
+const posts = ref([
+  { id: 1, title: 'My journey with Vue' },
+  { id: 2, title: 'Blogging with Vue' },
+  { id: 3, title: 'Why Vue is so fun' }
+])
+
+const toTheWelcomeData = (childData)=>{
+  console.log('子触发到父级事件了');
+  console.log('子数据为：',childData);
+}
+
 </script>
 
 <template>
-  <WelcomeItem>
+  <WelcomeItem :title="parentTitle" :tochildObj="tochildValueObj" v-bind="tochildValueObj2" :posts="posts" @child-click="toTheWelcomeData">
     <template #icon>
       <DocumentationIcon />
     </template>

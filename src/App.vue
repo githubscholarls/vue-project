@@ -12,9 +12,13 @@ import TheWelcome from './components/TheWelcome.vue'
       <HelloWorld msg="You did it!" />
     </div>
   </header>
+  
+  <h4>这是app中的内容模板</h4>
 
   <main>
-    <TheWelcome />
+    下面是TheWelcome模板
+    <TheWelcome/>
+    上面是TheWelcome模板
   </main>
 </template>
 

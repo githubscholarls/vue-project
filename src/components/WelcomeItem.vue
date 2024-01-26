@@ -1,14 +1,36 @@
-<template>
+<script setup>
+
+const curName ='当前Welcomeitem组件数据'
+
+defineProps(['title','tochildObj','name','age','posts','tochildValueObj2']);
+
+const emit =defineEmits(['toTheWelcomeData'])
+const toParentData =(childData)=>{
+  console.log('子触发了');
+  emit('child-click',childData);
+};
+</script>
+
+<template >
   <div class="item">
+    <h1>父传子数据：{{ title }} {{ tochildObj }} {{ name }} {{ age }}</h1>
     <i>
       <slot name="icon"></slot>
     </i>
     <div class="details">
+      <h3>{{ curName }}</h3>
+      <span>这是父传子 列表展示</span>
+      <ul>
+        <li v-for="(item,index) of posts" :key="index">{{item.title  }}</li>
+      </ul>
       <h3>
         <slot name="heading"></slot>
       </h3>
       <slot></slot>
     </div>
+
+    <h1>子传父数据</h1>
+    <button @click="toParentData(3)">传递</button>
   </div>
 </template>
 
