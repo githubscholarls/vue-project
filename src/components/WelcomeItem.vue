@@ -1,5 +1,10 @@
 <script setup>
 
+import { ref } from 'vue';
+
+// 定义一个初始值为0的数字变量
+const curIndex = ref(0);
+
 const curName ='当前Welcomeitem组件数据'
 
 defineProps(['title','tochildObj','name','age','posts','tochildValueObj2']);
@@ -20,8 +25,27 @@ const toParentData =(childData)=>{
     <div class="details">
       <h3>{{ curName }}</h3>
       <span>这是父传子 列表展示</span>
+
+      <!-- <h2>
+        posts : {{posts}}
+      </h2> -->
+
+      <!-- 可以用哦 -->      
+      <!-- <h2 :curI="curIndex" @click="this.curIndex++">当前点击索引 {{curIndex  }}</h2> -->
       <ul>
-        <li v-for="(item,index) of posts" :key="index">{{item.title  }}</li>
+        <!-- 这是双层循环 -->
+        <li v-for="(item,index) of posts" :key="index"> {{ index }} {{ item.title  }} {{ item.tags }}
+          <ul>
+            <li v-for="(item,index) of item.tags">内层索引：{{ index }} 内层数据： {{ item }}</li>
+          </ul>
+        </li>
+      </ul>
+      
+       <ul>
+        <!-- 必须添加posts 检查  不然无法对posts任何操作都报错 -->
+        <li v-if="posts" v-for="(item,index) in posts[2].tags" >
+          ok la {{ index }} {{ item }}
+        </li>
       </ul>
       <h3>
         <slot name="heading"></slot>

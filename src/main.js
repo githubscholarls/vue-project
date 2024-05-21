@@ -9,7 +9,7 @@ import App1 from './App1.vue'
 
 
 const app = createApp(App)
-app.mount('#app')
+app.mount('#app1')
 
 // const app1 = createApp(App1)
 // app1.config.globalProperties.App1msg = 'hello'
