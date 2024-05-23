@@ -15,11 +15,53 @@ import TheWelcome from './components/TheWelcome.vue'
   
   <h4>这是app中的内容模板</h4>
 
-  <main>
+  <!-- <main>
     下面是TheWelcome模板
     <TheWelcome/>
     上面是TheWelcome模板
-  </main>
+  </main> -->
+
+<main>
+  <ul>
+    <li>
+      <router-link to="/users/eduardo/posts/1"
+        >/users/eduardo/posts/1</router-link
+      >
+    </li>
+    <li>
+      <router-link to="/users/eduardo/posts/20"
+        >/users/eduardo/posts/20</router-link
+      >
+    </li>
+    <li>
+      <router-link to="/about/aaa/20"
+        >/about/aaa/20</router-link
+      >
+    </li>
+    <li>
+      <router-link to="/about/bbb/30"
+        >/about/bbb/30</router-link
+      >
+    </li>
+    <li>
+      <router-link to="/userpost/gggg/profile"
+        >/userpost/gggg/profile</router-link
+      >
+    </li>
+    <li>
+      <router-link to="/userpost/gggg/profile2"
+        >/userpost/gggg/profile2</router-link
+      >
+    </li>
+  </ul>
+  <router-view></router-view>
+
+  <!-- 同时渲染多个嵌套路由组件 -->
+  <router-view name="UserPostProfile3"></router-view>
+  <router-view name="UserPostProfile4"></router-view>
+
+</main>
+  
 </template>
 
 <style scoped>
