@@ -18,5 +18,5 @@ const route = useRoute()
 </script>
 
 <template>
-  <h2>AboutView</h2>
+  <h2>AboutView  {{ this.$route.params }} </h2>
 </template>
