@@ -1,4 +1,5 @@
-﻿import AboutView from '../components/MyRouter/AboutView.vue'
+﻿import Layout from '../layout/Layout.vue'
+import AboutView from '../components/MyRouter/AboutView.vue'
 import AboutDetail from '../components/MyRouter/AboutDetail.vue'
 import UserPost from '../components/MyRouter/UserPost.vue'
 import UserPostProfile from '../components/MyRouter/UserPostProfile.vue'
@@ -8,12 +9,24 @@ import UserPostProfile4 from '../components/MyRouter/UserPostProfile4.vue'
 import UsersLayout from '../components/MyRouter/UsersLayout.vue'
 import UserList from '../components/MyRouter/UserList.vue'
 import UserDetails from '../components/MyRouter/UserDetails.vue'
-import Layout from '../layout/Layout.vue'
+import FirstTable from '../components/table/FirstTable.vue'
 
 import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
 
 
 const routes = [
+    {
+        path:'/table',
+        component:Layout,
+        name:'表格',
+        children:[
+            {
+                path:'first',
+                component:FirstTable,
+                name:'第一个表格'
+            }
+        ]
+    },
     {
         path: '/',
         component: Layout,
