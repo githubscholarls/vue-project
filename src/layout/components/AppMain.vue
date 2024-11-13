@@ -1,5 +1,8 @@
 ﻿<template>
-    <div>appmain</div>
+    <div>
+        appmain
+    </div>
+    
 </template>
 <script setup>
 </script>
