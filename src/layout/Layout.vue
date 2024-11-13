@@ -19,7 +19,8 @@
                 "header"
             </el-header>
             <el-main>
-                "appmain"
+                
+        <router-view /> 
             </el-main>
         </el-container>
     </el-container>
@@ -31,12 +32,10 @@
 <script setup>
 import { computed } from 'vue'
 import { RouterView, useRoute, useRouter } from 'vue-router'
-import AppMain from './components/AppMain.vue';
 
 const router = useRouter();
 
-debugger
- const routes = router.options.routes;
+const routes = computed(() => router.getRoutes());
 
 const handleOpen = function (key, keyPath) {
     console.log(key, keyPath);

@@ -1,6 +1,5 @@
 import './assets/main.css';
 import ElementPlus from "element-plus";
-import 'element-ui/lib/theme-chalk/index.css';
 import { createApp,ref } from 'vue';
 import '../node_modules/element-plus/theme-chalk/index.css';
 import AppVueAdminTemplate from './AppVueAdminTemplate.vue';
