@@ -16,8 +16,8 @@
                 </el-table-column>
             </el-table-column>
             <el-table-column fixed="right" label="操作" min-width="120">
-                <template #default>
-                    <el-button link type="primary" size="small" @click="handleClick">
+                <template #default="scope">
+                    <el-button link type="primary" size="small" @click="handleClick(scope.row)">
                         查看
                     </el-button>
                     <el-button link type="primary" size="small">编辑</el-button>
@@ -25,12 +25,13 @@
             </el-table-column>
         </el-table>
 
-
+        <ViewTable :obj="curRow" :title="curRow.title" :author="curRow.author" :dialogFormVisible="showViewTable" />
 
     </el-container>
 </template>
 <script setup>
 import {ref} from 'vue'
+import ViewTable from './ViewTable.vue'
 
 const tableData = ref([
     {
@@ -41,8 +42,15 @@ const tableData = ref([
     }
 ])
 
+//
+const curRow = ref({})
+const showViewTable = ref(false)
+
 const handleClick = function (row) {
-    console.log(row);
+    curRow.value = row;
+    showViewTable.value = true;
+    debugger
+    console.log(row.title);
 }
 
 </script>
