@@ -25,7 +25,7 @@
             </el-table-column>
         </el-table>
 
-        <ViewTable :obj="curRow" :title="curRow.title" :author="curRow.author" :dialogFormVisible="showViewTable" />
+        <ViewTable :obj="curRow" :title="curRow.title" :author="curRow.author" :dialogFormVisible="showViewTable" @VTClose="tableCloseChildDialog"/>
 
     </el-container>
 </template>
@@ -47,10 +47,19 @@ const curRow = ref({})
 const showViewTable = ref(false)
 
 const handleClick = function (row) {
+    console.log('查看之前row值',curRow.value)
     curRow.value = row;
+    console.log('查看之后row值',curRow.value)
+    console.log('查看之前弹框变量',showViewTable.value)
     showViewTable.value = true;
-    debugger
-    console.log(row.title);
+    console.log('查看之后弹框变量',showViewTable.value)
+    //debugger
+}
+
+const tableCloseChildDialog = function(val){
+    console.log('父组件接受到子组件事件了',val)
+    curRow.value = {};
+    showViewTable.value=val;
 }
 
 </script>
