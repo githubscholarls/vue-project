@@ -30,12 +30,13 @@
     </el-container>
 </template>
 <script setup>
-import {ref} from 'vue'
+import {onMounted, ref} from 'vue'
 import ViewTable from './ViewTable.vue'
+import { getList } from '../../api/table'
 
 const tableData = ref([
     {
-        'title': "作品1",
+        'title': "接口请求前数据",
         'author': '鲁迅',
         'area': "中国",
 
@@ -45,6 +46,18 @@ const tableData = ref([
 //
 const curRow = ref({})
 const showViewTable = ref(false)
+
+
+onMounted(async ()=>{
+    var res = await getList();
+    // debugger
+    console.log('请求getList接口返回',res);
+    if(res && res.code === 20000){
+        console.log('data',res.data)
+        tableData.value = res.data.items
+    }
+})
+
 
 const handleClick = function (row) {
     console.log('查看之前row值',curRow.value)

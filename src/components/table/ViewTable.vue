@@ -26,6 +26,7 @@
 import { onMounted, ref } from 'vue'
 
 const formLabelWidth = '140px'
+//使用了setup，这里便可以直接使用
 const props = defineProps({
     obj: {},
     title: '',
